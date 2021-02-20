@@ -5,8 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -20,6 +19,11 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="componenteHTML/datatable/datatables.min.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -198,14 +202,14 @@
                         <div class="hero__search">
                             <div class="hero__search__form">
 
-                                    <div class="hero__search__categories">
-                                        All Categories
+                                <div class="hero__search__categories">
+                                    All Categories
                                    
                                         <span class="arrow_carrot-down"></span>
-                                    </div>
-                                    <input type="text" placeholder="What do yo u need?">
-                                    <button type="submit" class="site-btn">SEARCH</button>
-                               
+                                </div>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+
                             </div>
                             <div class="hero__search__phone">
                                 <div class="hero__search__phone__icon">
@@ -235,7 +239,7 @@
 
 
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceMain" runat="server">
             </asp:ContentPlaceHolder>
         </div>
 
@@ -308,7 +312,8 @@
                                 </p>
                             </div>
                             <div class="footer__copyright__payment">
-                                <img src="img/payment-item.png" alt=""></div>
+                                <img src="img/payment-item.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -325,6 +330,11 @@
         <script src="js/mixitup.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
+
+        <script type="text/javascript" src="componenteHTML/datatable/datatables.min.js"></script>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceScripts" runat="server">
+        </asp:ContentPlaceHolder>
 
     </form>
 </body>
