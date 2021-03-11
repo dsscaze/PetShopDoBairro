@@ -2,11 +2,30 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BancoDeDadosPadrao">
   <DataContextMoniker Name="/BancoDeDadosPadraoDataContext" />
   <nestedChildShapes>
-    <classShape Id="89168a43-004a-40cb-bc8f-83b5bbc1b11d" absoluteBounds="3.75, 1.375, 2, 2.1554996744791666">
+    <classShape Id="89168a43-004a-40cb-bc8f-83b5bbc1b11d" absoluteBounds="3.625, 0.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/BancoDeDadosPadraoDataContext/USUARIO" />
       <nestedChildShapes>
-        <elementListCompartment Id="aa44daf0-45c0-4ad4-8357-d4bd72bb792c" absoluteBounds="3.7649999999999997, 1.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aa44daf0-45c0-4ad4-8357-d4bd72bb792c" absoluteBounds="3.6399999999999997, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="704f24a7-05e9-4383-aabb-f32b5667a46d" absoluteBounds="7, 0.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/BancoDeDadosPadraoDataContext/EMPRESA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17cfd655-2e7a-4683-8209-2475cde54e4b" absoluteBounds="7.015, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0489d727-fa50-444b-a578-e6f52ec01182" absoluteBounds="7.375, 4.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/BancoDeDadosPadraoDataContext/FILIAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45c46026-06d3-4c7a-b35d-87dcf2e3a308" absoluteBounds="7.39, 5.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.1875 : 3.6170068359375); (8.1875 : 4.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BancoDeDadosPadraoDataContext/EMPRESA/EMPRESA_FILIAL" />
+      <nodes>
+        <classShapeMoniker Id="704f24a7-05e9-4383-aabb-f32b5667a46d" />
+        <classShapeMoniker Id="0489d727-fa50-444b-a578-e6f52ec01182" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -33,6 +33,12 @@ namespace PetShopDoBairro
     partial void InsertUSUARIO(USUARIO instance);
     partial void UpdateUSUARIO(USUARIO instance);
     partial void DeleteUSUARIO(USUARIO instance);
+    partial void InsertEMPRESA(EMPRESA instance);
+    partial void UpdateEMPRESA(EMPRESA instance);
+    partial void DeleteEMPRESA(EMPRESA instance);
+    partial void InsertFILIAL(FILIAL instance);
+    partial void UpdateFILIAL(FILIAL instance);
+    partial void DeleteFILIAL(FILIAL instance);
     #endregion
 		
 		public BancoDeDadosPadraoDataContext() : 
@@ -70,6 +76,22 @@ namespace PetShopDoBairro
 			get
 			{
 				return this.GetTable<USUARIO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EMPRESA> EMPRESAs
+		{
+			get
+			{
+				return this.GetTable<EMPRESA>();
+			}
+		}
+		
+		public System.Data.Linq.Table<FILIAL> FILIALs
+		{
+			get
+			{
+				return this.GetTable<FILIAL>();
 			}
 		}
 	}
@@ -255,6 +277,751 @@ namespace PetShopDoBairro
 					this._ATIVO = value;
 					this.SendPropertyChanged("ATIVO");
 					this.OnATIVOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPRESA")]
+	public partial class EMPRESA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NOMEFANTASIA;
+		
+		private string _RAZAOSOCIAL;
+		
+		private string _CNPJ;
+		
+		private string _ENDERECO;
+		
+		private string _BAIRRO;
+		
+		private string _CIDADE;
+		
+		private string _ESTADO;
+		
+		private string _CEP;
+		
+		private string _TELEFONE;
+		
+		private string _TELEFONE2;
+		
+		private string _EMAIL;
+		
+		private EntitySet<FILIAL> _FILIALs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNOMEFANTASIAChanging(string value);
+    partial void OnNOMEFANTASIAChanged();
+    partial void OnRAZAOSOCIALChanging(string value);
+    partial void OnRAZAOSOCIALChanged();
+    partial void OnCNPJChanging(string value);
+    partial void OnCNPJChanged();
+    partial void OnENDERECOChanging(string value);
+    partial void OnENDERECOChanged();
+    partial void OnBAIRROChanging(string value);
+    partial void OnBAIRROChanged();
+    partial void OnCIDADEChanging(string value);
+    partial void OnCIDADEChanged();
+    partial void OnESTADOChanging(string value);
+    partial void OnESTADOChanged();
+    partial void OnCEPChanging(string value);
+    partial void OnCEPChanged();
+    partial void OnTELEFONEChanging(string value);
+    partial void OnTELEFONEChanged();
+    partial void OnTELEFONE2Changing(string value);
+    partial void OnTELEFONE2Changed();
+    partial void OnEMAILChanging(string value);
+    partial void OnEMAILChanged();
+    #endregion
+		
+		public EMPRESA()
+		{
+			this._FILIALs = new EntitySet<FILIAL>(new Action<FILIAL>(this.attach_FILIALs), new Action<FILIAL>(this.detach_FILIALs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMEFANTASIA", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string NOMEFANTASIA
+		{
+			get
+			{
+				return this._NOMEFANTASIA;
+			}
+			set
+			{
+				if ((this._NOMEFANTASIA != value))
+				{
+					this.OnNOMEFANTASIAChanging(value);
+					this.SendPropertyChanging();
+					this._NOMEFANTASIA = value;
+					this.SendPropertyChanged("NOMEFANTASIA");
+					this.OnNOMEFANTASIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RAZAOSOCIAL", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string RAZAOSOCIAL
+		{
+			get
+			{
+				return this._RAZAOSOCIAL;
+			}
+			set
+			{
+				if ((this._RAZAOSOCIAL != value))
+				{
+					this.OnRAZAOSOCIALChanging(value);
+					this.SendPropertyChanging();
+					this._RAZAOSOCIAL = value;
+					this.SendPropertyChanged("RAZAOSOCIAL");
+					this.OnRAZAOSOCIALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNPJ", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CNPJ
+		{
+			get
+			{
+				return this._CNPJ;
+			}
+			set
+			{
+				if ((this._CNPJ != value))
+				{
+					this.OnCNPJChanging(value);
+					this.SendPropertyChanging();
+					this._CNPJ = value;
+					this.SendPropertyChanged("CNPJ");
+					this.OnCNPJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENDERECO", DbType="VarChar(500)")]
+		public string ENDERECO
+		{
+			get
+			{
+				return this._ENDERECO;
+			}
+			set
+			{
+				if ((this._ENDERECO != value))
+				{
+					this.OnENDERECOChanging(value);
+					this.SendPropertyChanging();
+					this._ENDERECO = value;
+					this.SendPropertyChanged("ENDERECO");
+					this.OnENDERECOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAIRRO", DbType="VarChar(500)")]
+		public string BAIRRO
+		{
+			get
+			{
+				return this._BAIRRO;
+			}
+			set
+			{
+				if ((this._BAIRRO != value))
+				{
+					this.OnBAIRROChanging(value);
+					this.SendPropertyChanging();
+					this._BAIRRO = value;
+					this.SendPropertyChanged("BAIRRO");
+					this.OnBAIRROChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CIDADE", DbType="VarChar(500)")]
+		public string CIDADE
+		{
+			get
+			{
+				return this._CIDADE;
+			}
+			set
+			{
+				if ((this._CIDADE != value))
+				{
+					this.OnCIDADEChanging(value);
+					this.SendPropertyChanging();
+					this._CIDADE = value;
+					this.SendPropertyChanged("CIDADE");
+					this.OnCIDADEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADO", DbType="VarChar(500)")]
+		public string ESTADO
+		{
+			get
+			{
+				return this._ESTADO;
+			}
+			set
+			{
+				if ((this._ESTADO != value))
+				{
+					this.OnESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._ESTADO = value;
+					this.SendPropertyChanged("ESTADO");
+					this.OnESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEP", DbType="VarChar(500)")]
+		public string CEP
+		{
+			get
+			{
+				return this._CEP;
+			}
+			set
+			{
+				if ((this._CEP != value))
+				{
+					this.OnCEPChanging(value);
+					this.SendPropertyChanging();
+					this._CEP = value;
+					this.SendPropertyChanged("CEP");
+					this.OnCEPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONE", DbType="VarChar(50)")]
+		public string TELEFONE
+		{
+			get
+			{
+				return this._TELEFONE;
+			}
+			set
+			{
+				if ((this._TELEFONE != value))
+				{
+					this.OnTELEFONEChanging(value);
+					this.SendPropertyChanging();
+					this._TELEFONE = value;
+					this.SendPropertyChanged("TELEFONE");
+					this.OnTELEFONEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONE2", DbType="VarChar(50)")]
+		public string TELEFONE2
+		{
+			get
+			{
+				return this._TELEFONE2;
+			}
+			set
+			{
+				if ((this._TELEFONE2 != value))
+				{
+					this.OnTELEFONE2Changing(value);
+					this.SendPropertyChanging();
+					this._TELEFONE2 = value;
+					this.SendPropertyChanged("TELEFONE2");
+					this.OnTELEFONE2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="VarChar(150)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this.OnEMAILChanging(value);
+					this.SendPropertyChanging();
+					this._EMAIL = value;
+					this.SendPropertyChanged("EMAIL");
+					this.OnEMAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPRESA_FILIAL", Storage="_FILIALs", ThisKey="ID", OtherKey="IDEMPRESA")]
+		public EntitySet<FILIAL> FILIALs
+		{
+			get
+			{
+				return this._FILIALs;
+			}
+			set
+			{
+				this._FILIALs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_FILIALs(FILIAL entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPRESA = this;
+		}
+		
+		private void detach_FILIALs(FILIAL entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPRESA = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FILIAL")]
+	public partial class FILIAL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NOMEFANTASIA;
+		
+		private string _RAZAOSOCIAL;
+		
+		private string _CNPJ;
+		
+		private string _ENDERECO;
+		
+		private string _BAIRRO;
+		
+		private string _CIDADE;
+		
+		private string _ESTADO;
+		
+		private string _CEP;
+		
+		private string _TELEFONE;
+		
+		private string _TELEFONE2;
+		
+		private string _EMAIL;
+		
+		private int _IDEMPRESA;
+		
+		private EntityRef<EMPRESA> _EMPRESA;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNOMEFANTASIAChanging(string value);
+    partial void OnNOMEFANTASIAChanged();
+    partial void OnRAZAOSOCIALChanging(string value);
+    partial void OnRAZAOSOCIALChanged();
+    partial void OnCNPJChanging(string value);
+    partial void OnCNPJChanged();
+    partial void OnENDERECOChanging(string value);
+    partial void OnENDERECOChanged();
+    partial void OnBAIRROChanging(string value);
+    partial void OnBAIRROChanged();
+    partial void OnCIDADEChanging(string value);
+    partial void OnCIDADEChanged();
+    partial void OnESTADOChanging(string value);
+    partial void OnESTADOChanged();
+    partial void OnCEPChanging(string value);
+    partial void OnCEPChanged();
+    partial void OnTELEFONEChanging(string value);
+    partial void OnTELEFONEChanged();
+    partial void OnTELEFONE2Changing(string value);
+    partial void OnTELEFONE2Changed();
+    partial void OnEMAILChanging(string value);
+    partial void OnEMAILChanged();
+    partial void OnIDEMPRESAChanging(int value);
+    partial void OnIDEMPRESAChanged();
+    #endregion
+		
+		public FILIAL()
+		{
+			this._EMPRESA = default(EntityRef<EMPRESA>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMEFANTASIA", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string NOMEFANTASIA
+		{
+			get
+			{
+				return this._NOMEFANTASIA;
+			}
+			set
+			{
+				if ((this._NOMEFANTASIA != value))
+				{
+					this.OnNOMEFANTASIAChanging(value);
+					this.SendPropertyChanging();
+					this._NOMEFANTASIA = value;
+					this.SendPropertyChanged("NOMEFANTASIA");
+					this.OnNOMEFANTASIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RAZAOSOCIAL", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string RAZAOSOCIAL
+		{
+			get
+			{
+				return this._RAZAOSOCIAL;
+			}
+			set
+			{
+				if ((this._RAZAOSOCIAL != value))
+				{
+					this.OnRAZAOSOCIALChanging(value);
+					this.SendPropertyChanging();
+					this._RAZAOSOCIAL = value;
+					this.SendPropertyChanged("RAZAOSOCIAL");
+					this.OnRAZAOSOCIALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNPJ", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CNPJ
+		{
+			get
+			{
+				return this._CNPJ;
+			}
+			set
+			{
+				if ((this._CNPJ != value))
+				{
+					this.OnCNPJChanging(value);
+					this.SendPropertyChanging();
+					this._CNPJ = value;
+					this.SendPropertyChanged("CNPJ");
+					this.OnCNPJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENDERECO", DbType="VarChar(500)")]
+		public string ENDERECO
+		{
+			get
+			{
+				return this._ENDERECO;
+			}
+			set
+			{
+				if ((this._ENDERECO != value))
+				{
+					this.OnENDERECOChanging(value);
+					this.SendPropertyChanging();
+					this._ENDERECO = value;
+					this.SendPropertyChanged("ENDERECO");
+					this.OnENDERECOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAIRRO", DbType="VarChar(500)")]
+		public string BAIRRO
+		{
+			get
+			{
+				return this._BAIRRO;
+			}
+			set
+			{
+				if ((this._BAIRRO != value))
+				{
+					this.OnBAIRROChanging(value);
+					this.SendPropertyChanging();
+					this._BAIRRO = value;
+					this.SendPropertyChanged("BAIRRO");
+					this.OnBAIRROChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CIDADE", DbType="VarChar(500)")]
+		public string CIDADE
+		{
+			get
+			{
+				return this._CIDADE;
+			}
+			set
+			{
+				if ((this._CIDADE != value))
+				{
+					this.OnCIDADEChanging(value);
+					this.SendPropertyChanging();
+					this._CIDADE = value;
+					this.SendPropertyChanged("CIDADE");
+					this.OnCIDADEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADO", DbType="VarChar(500)")]
+		public string ESTADO
+		{
+			get
+			{
+				return this._ESTADO;
+			}
+			set
+			{
+				if ((this._ESTADO != value))
+				{
+					this.OnESTADOChanging(value);
+					this.SendPropertyChanging();
+					this._ESTADO = value;
+					this.SendPropertyChanged("ESTADO");
+					this.OnESTADOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEP", DbType="VarChar(500)")]
+		public string CEP
+		{
+			get
+			{
+				return this._CEP;
+			}
+			set
+			{
+				if ((this._CEP != value))
+				{
+					this.OnCEPChanging(value);
+					this.SendPropertyChanging();
+					this._CEP = value;
+					this.SendPropertyChanged("CEP");
+					this.OnCEPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONE", DbType="VarChar(50)")]
+		public string TELEFONE
+		{
+			get
+			{
+				return this._TELEFONE;
+			}
+			set
+			{
+				if ((this._TELEFONE != value))
+				{
+					this.OnTELEFONEChanging(value);
+					this.SendPropertyChanging();
+					this._TELEFONE = value;
+					this.SendPropertyChanged("TELEFONE");
+					this.OnTELEFONEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONE2", DbType="VarChar(50)")]
+		public string TELEFONE2
+		{
+			get
+			{
+				return this._TELEFONE2;
+			}
+			set
+			{
+				if ((this._TELEFONE2 != value))
+				{
+					this.OnTELEFONE2Changing(value);
+					this.SendPropertyChanging();
+					this._TELEFONE2 = value;
+					this.SendPropertyChanged("TELEFONE2");
+					this.OnTELEFONE2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="VarChar(150)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this.OnEMAILChanging(value);
+					this.SendPropertyChanging();
+					this._EMAIL = value;
+					this.SendPropertyChanged("EMAIL");
+					this.OnEMAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDEMPRESA", DbType="Int NOT NULL")]
+		public int IDEMPRESA
+		{
+			get
+			{
+				return this._IDEMPRESA;
+			}
+			set
+			{
+				if ((this._IDEMPRESA != value))
+				{
+					if (this._EMPRESA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDEMPRESAChanging(value);
+					this.SendPropertyChanging();
+					this._IDEMPRESA = value;
+					this.SendPropertyChanged("IDEMPRESA");
+					this.OnIDEMPRESAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPRESA_FILIAL", Storage="_EMPRESA", ThisKey="IDEMPRESA", OtherKey="ID", IsForeignKey=true)]
+		public EMPRESA EMPRESA
+		{
+			get
+			{
+				return this._EMPRESA.Entity;
+			}
+			set
+			{
+				EMPRESA previousValue = this._EMPRESA.Entity;
+				if (((previousValue != value) 
+							|| (this._EMPRESA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EMPRESA.Entity = null;
+						previousValue.FILIALs.Remove(this);
+					}
+					this._EMPRESA.Entity = value;
+					if ((value != null))
+					{
+						value.FILIALs.Add(this);
+						this._IDEMPRESA = value.ID;
+					}
+					else
+					{
+						this._IDEMPRESA = default(int);
+					}
+					this.SendPropertyChanged("EMPRESA");
 				}
 			}
 		}

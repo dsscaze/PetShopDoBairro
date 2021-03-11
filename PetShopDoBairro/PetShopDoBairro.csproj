@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adm\empresaForm.aspx" />
+    <Content Include="adm\empresas.aspx" />
+    <Content Include="adm\filialForm.aspx" />
     <Content Include="adm\sbadmin2\css\sb-admin-2.css" />
     <Content Include="adm\sbadmin2\css\sb-admin-2.min.css" />
     <Content Include="adm\sbadmin2\img\undraw_posting_photo.svg" />
@@ -1810,6 +1813,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adm\empresaForm.aspx.cs">
+      <DependentUpon>empresaForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\empresaForm.aspx.designer.cs">
+      <DependentUpon>empresaForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\empresas.aspx.cs">
+      <DependentUpon>empresas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\empresas.aspx.designer.cs">
+      <DependentUpon>empresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\filialForm.aspx.cs">
+      <DependentUpon>filialForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\filialForm.aspx.designer.cs">
+      <DependentUpon>filialForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adm\MasterAdm.Master.cs">
       <DependentUpon>MasterAdm.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
