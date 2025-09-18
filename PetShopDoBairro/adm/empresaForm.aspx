@@ -12,7 +12,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Nome Fantasia</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtNomeFantasia" />
+                <asp:TextBox runat="server" class="form-control" ID="txtNomeFantasia" autocomplete="off"  />
             </div>
             <div class="form-group">
                 <label>Razão Social</label>
